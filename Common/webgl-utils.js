@@ -139,7 +139,7 @@ var create3DContext = function(canvas, opt_attribs) {
     }
   }
   return context;
-};
+}
 
 return {
   create3DContext: create3DContext,
@@ -157,19 +157,8 @@ window.requestAnimFrame = (function() {
          window.oRequestAnimationFrame ||
          window.msRequestAnimationFrame ||
          function(/* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
-           return window.setTimeout(callback, 1000/60);
+           window.setTimeout(callback, 1000/60);
          };
 })();
 
-/**
- * Provides cancelAnimationFrame in a cross browser way.
- */
-window.cancelAnimFrame = (function() {
-  return window.cancelAnimationFrame ||
-         window.webkitCancelAnimationFrame ||
-         window.mozCancelAnimationFrame ||
-         window.oCancelAnimationFrame ||
-         window.msCancelAnimationFrame ||
-         window.clearTimeout;
-})();
 
